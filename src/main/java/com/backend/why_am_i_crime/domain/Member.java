@@ -2,18 +2,11 @@
 package com.backend.why_am_i_crime.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
-
+import lombok.Builder;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Member {
+@Table(name="member")
+public class Member extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +27,11 @@ public class Member {
     @Column(columnDefinition = "json")
     private String profileImage;
 
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
-
-    @Column(nullable = false)
-    private LocalDateTime updatedAt;
-
+    @Builder
+    public Member(Location location, String loginId, String password, String name) {
+        this.location = location;
+        this.loginId = loginId;
+        this.password = password;
+        this.name = name;
+    }
 }
