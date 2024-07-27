@@ -1,10 +1,13 @@
 package com.backend.why_am_i_crime.domain;
 
 import jakarta.persistence.*;
+import lombok.*;
 import java.util.*;
 
 @Entity
 @Table(name="comment")
+@Builder
+@AllArgsConstructor
 public class Comment extends BaseEntity {
 
     @Id

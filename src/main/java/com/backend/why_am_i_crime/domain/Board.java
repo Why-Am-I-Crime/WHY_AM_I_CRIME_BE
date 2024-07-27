@@ -6,6 +6,8 @@ import java.util.List;
 
 @Entity
 @Table(name="board")
+@AllArgsConstructor
+@Builder
 public class Board extends BaseEntity {
 
     @Id
